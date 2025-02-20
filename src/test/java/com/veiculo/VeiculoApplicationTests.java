@@ -1,4 +1,4 @@
-package com.veiculo.veiculo;
+package com.veiculo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
