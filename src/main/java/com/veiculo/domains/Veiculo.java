@@ -1,6 +1,7 @@
 package com.veiculo.domains;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.veiculo.domains.dtos.VeiculoDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -29,6 +30,7 @@ public class Veiculo {
     private String nomeProprietario;
 
     @NotNull @NotBlank
+    @Column(unique = true)
     private String cpfProprietario;
 
     public Veiculo() {
@@ -41,6 +43,15 @@ public class Veiculo {
         this.valorAquisicao = valorAquisicao;
         this.nomeProprietario = nomeProprietario;
         this.cpfProprietario = cpfProprietario;
+    }
+
+    public Veiculo(VeiculoDTO dto) {
+        this.id = dto.getId();
+        this.descricao = dto.getDescricao();
+        this.dataAquisicao = dto.getDataAquisicao();
+        this.valorAquisicao = dto.getValorAquisicao();
+        this.nomeProprietario = dto.getNomeProprietario();
+        this.cpfProprietario = dto.getCpfProprietario();
     }
 
     public Long getId() {
